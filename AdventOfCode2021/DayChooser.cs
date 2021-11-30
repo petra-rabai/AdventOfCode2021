@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AdventOfCode2021
+{
+    internal class DayChooser
+    {
+        public string ChoosedDay { get; set; }
+
+        public string ReadDayFromConsole()
+        {
+            Console.WriteLine("Welcome to Advent of Code 2021\n" + "Choose the which day puzzle can you see (example: Day 1): \n" );
+            ChoosedDay = Console.ReadLine();
+            return ChoosedDay; 
+        }
+
+        public void SelectDay(Days days)
+        {
+            switch (ChoosedDay)
+            {
+                case "Day 1":
+                    days.DayOne();
+                    break;
+                case "Day 2":
+                    days.DayTwo();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
