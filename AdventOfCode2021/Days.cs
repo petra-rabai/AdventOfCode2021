@@ -9,8 +9,8 @@ namespace AdventOfCode2021
     internal class Days
     {
         public void DayOne(DataReader dataReader)
-        { 
-            //
+        {
+            int numberOfIncrise;
         }
 
         public void DayTwo()
