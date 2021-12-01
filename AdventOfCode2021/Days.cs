@@ -8,14 +8,14 @@ namespace AdventOfCode2021
 {
     internal class Days
     {
-        public void DayOne()
+        public void DayOne(DataReader dataReader)
         { 
-            
+            //
         }
 
         public void DayTwo()
         {
-
+            //
         }
     }
 }
