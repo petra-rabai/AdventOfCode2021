@@ -17,12 +17,12 @@ namespace AdventOfCode2021
             return ChoosedDay; 
         }
 
-        public void SelectDay(Days days)
+        public void SelectDay(Days days, DataReader dataReader)
         {
             switch (ChoosedDay)
             {
                 case "Day 1":
-                    days.DayOne();
+                    days.DayOne(dataReader);
                     break;
                 case "Day 2":
                     days.DayTwo();
