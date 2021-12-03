@@ -12,8 +12,11 @@ namespace AdventOfCode2021
         {
             int countOfIncrase = 0;
             int firstSumGroup;
+            int firstitem;
+            int seconditem;
+            int thirditem;
             int secondSumGroup;
-
+          
             for (int i = 1; i < dataReader.InputData.Length; i++)
             {
                 if (dataReader.InputData.ElementAt(i) > dataReader.InputData.ElementAt(i-1))
@@ -21,27 +24,36 @@ namespace AdventOfCode2021
                     countOfIncrase++;
                 }
             }
+
+            Console.WriteLine(countOfIncrase);
+
             countOfIncrase = 0;
             
-            for (int j = 1; j < dataReader.InputData.Length; j += 3)
+            for (int j = 1; j < dataReader.InputData.Length-2; j++)
             {
-                if (j + 3 < dataReader.InputData.Length)
-                {
-                    firstSumGroup = dataReader.InputData.ElementAt(j) + dataReader.InputData.ElementAt(j - 1) + dataReader.InputData.ElementAt(j + 2);
-                    secondSumGroup = dataReader.InputData.ElementAt(j + 1) + dataReader.InputData.ElementAt(j + 2) + dataReader.InputData.ElementAt(j + 3);
-                    if (secondSumGroup > firstSumGroup)
-                    {
-                        countOfIncrase++;
-                    }
-                }
-                
+                firstitem = dataReader.InputData[j-1];
+                seconditem = dataReader.InputData[j];
+                thirditem = dataReader.InputData[j + 1];
+                firstSumGroup = firstitem + seconditem + thirditem;
+
                
+                firstitem = dataReader.InputData[j];
+                seconditem = dataReader.InputData[j + 1];
+                thirditem = dataReader.InputData[j + 2];
+                secondSumGroup = firstitem + seconditem + thirditem;
+
+                if (secondSumGroup> firstSumGroup)
+                {
+                    countOfIncrase++;
+                }
+
             }
 
             Console.WriteLine(countOfIncrase);
+
         }
 
-        public void DayTwo()
+        public void DayTwo(DataReader dataReader)
         {
             //
         }

@@ -10,12 +10,14 @@ namespace AdventOfCode2021
     internal class DataReader
     {
         string filePath = "C:\\source\\repos\\petra-rabai\\AdventOfCode2021\\AdventOfCode2021\\";
-        string fileName = "Day1Input.txt";
+        string fileName;
 
         public int[] InputData { get; set; }
 
-        public int[] ReadInputData()
+        public int[] ReadInputData(DayChooser dayChooser)
         {
+            fileName = dayChooser.FileName;
+
             string[] lines = File.ReadAllLines(filePath+fileName);
             InputData = new int[lines.Length];
 

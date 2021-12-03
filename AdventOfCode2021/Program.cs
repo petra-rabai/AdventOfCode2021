@@ -13,9 +13,9 @@ namespace AdventOfCode2021
             DataReader dataReader = new DataReader();
             DayChooser dayChooser = new DayChooser();
             Days days = new Days();
-            dataReader.ReadInputData();
-            days.DayOne(dataReader);
             dayChooser.ReadDayFromConsole();
+            dayChooser.ReadFilenameFromConsole();
+            dataReader.ReadInputData(dayChooser);
             dayChooser.SelectDay(days,dataReader);
         }
     }
