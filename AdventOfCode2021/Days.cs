@@ -97,7 +97,7 @@ namespace AdventOfCode2021
 
             foreach (var item in dataReader.InputData)
             {
-                way = new string[dataReader.InputData.Length];
+                way = new string[2];
                 string lineCoordinate = item;
                 way = lineCoordinate.Split(' ');
                 direction = way[0];
@@ -122,6 +122,23 @@ namespace AdventOfCode2021
             finalplan = horizontalPosition * depth;
 
             Console.WriteLine(finalplan);
+
+        }
+
+        public void DayThree(DataReader dataReader)
+        {
+            string gammaRate;
+            string epsilonRate;
+            int lineCount;
+            string binaryReportLine;
+
+            foreach (var item in dataReader.InputData)
+            {
+                binaryReportLine = item;
+                lineCount = binaryReportLine.Length;
+                
+            }
+
 
         }
     }
