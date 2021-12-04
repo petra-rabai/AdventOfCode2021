@@ -19,7 +19,7 @@ namespace AdventOfCode2021
           
             for (int i = 1; i < dataReader.InputData.Length; i++)
             {
-                if (dataReader.InputData.ElementAt(i) > dataReader.InputData.ElementAt(i-1))
+                if (Convert.ToInt32(dataReader.InputData.ElementAt(i)) > Convert.ToInt32( dataReader.InputData.ElementAt(i-1)))
                 {
                     countOfIncrase++;
                 }
@@ -27,19 +27,21 @@ namespace AdventOfCode2021
 
             Console.WriteLine(countOfIncrase);
 
+            // Part Two
+            
             countOfIncrase = 0;
             
             for (int j = 1; j < dataReader.InputData.Length-2; j++)
             {
-                firstitem = dataReader.InputData[j-1];
-                seconditem = dataReader.InputData[j];
-                thirditem = dataReader.InputData[j + 1];
+                firstitem = Convert.ToInt32(dataReader.InputData[j-1]);
+                seconditem = Convert.ToInt32(dataReader.InputData[j]);
+                thirditem = Convert.ToInt32(dataReader.InputData[j + 1]);
                 firstSumGroup = firstitem + seconditem + thirditem;
 
                
-                firstitem = dataReader.InputData[j];
-                seconditem = dataReader.InputData[j + 1];
-                thirditem = dataReader.InputData[j + 2];
+                firstitem = Convert.ToInt32(dataReader.InputData[j]);
+                seconditem = Convert.ToInt32(dataReader.InputData[j + 1]);
+                thirditem = Convert.ToInt32(dataReader.InputData[j + 2]);
                 secondSumGroup = firstitem + seconditem + thirditem;
 
                 if (secondSumGroup> firstSumGroup)
@@ -55,7 +57,72 @@ namespace AdventOfCode2021
 
         public void DayTwo(DataReader dataReader)
         {
-            //
+            int horizontalPosition = 0;
+            int depth = 0;
+            int aim = 0;
+            string[] way;
+            string direction;
+            foreach (var item in dataReader.InputData)
+            {
+                way = new string[dataReader.InputData.Length];
+                string lineCoordinate = item;
+                way = lineCoordinate.Split(' ');
+                direction = way[0];
+                int wayNumber = Convert.ToInt32(way[1]);
+                switch (direction)
+                {
+                    case "forward":
+                        horizontalPosition += wayNumber;  
+                        break;
+                    case "up":                       
+                       depth -= wayNumber;
+                        break;
+                    case "down":                       
+                        depth += wayNumber;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            int finalplan = horizontalPosition * depth;
+
+            Console.WriteLine(finalplan);
+            
+            // Part Two
+
+            horizontalPosition = 0;
+            depth = 0;
+            finalplan = 0;
+
+            foreach (var item in dataReader.InputData)
+            {
+                way = new string[dataReader.InputData.Length];
+                string lineCoordinate = item;
+                way = lineCoordinate.Split(' ');
+                direction = way[0];
+                int wayNumber = Convert.ToInt32(way[1]);
+                switch (direction)
+                {
+                    case "forward":
+                        horizontalPosition += wayNumber;
+                        depth += wayNumber * aim;
+                        break;
+                    case "up":
+                        aim -= wayNumber;
+                        break;
+                    case "down":
+                        aim += wayNumber;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            finalplan = horizontalPosition * depth;
+
+            Console.WriteLine(finalplan);
+
         }
     }
 }

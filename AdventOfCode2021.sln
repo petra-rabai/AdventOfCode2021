@@ -8,7 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inputs", "Inputs", "{1AF97986-3E2D-4AE9-B83C-13AB63F8037D}"
 	ProjectSection(SolutionItems) = preProject
 		AdventOfCode2021\Day1Input.txt = AdventOfCode2021\Day1Input.txt
-		Day2Input.txt = Day2Input.txt
+		AdventOfCode2021\Day2Input.txt = AdventOfCode2021\Day2Input.txt
 	EndProjectSection
 EndProject
 Global

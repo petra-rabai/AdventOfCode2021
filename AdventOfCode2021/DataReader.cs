@@ -12,18 +12,18 @@ namespace AdventOfCode2021
         string filePath = "C:\\source\\repos\\petra-rabai\\AdventOfCode2021\\AdventOfCode2021\\";
         string fileName;
 
-        public int[] InputData { get; set; }
+        public string[] InputData { get; set; }
 
-        public int[] ReadInputData(DayChooser dayChooser)
+        public string[] ReadInputData(DayChooser dayChooser)
         {
             fileName = dayChooser.FileName;
 
             string[] lines = File.ReadAllLines(filePath+fileName);
-            InputData = new int[lines.Length];
+            InputData = new string[lines.Length];
 
             for (int i = 0; i < lines.Length; i++)
             {
-                InputData[i] =Convert.ToInt32(lines[i]);
+                InputData[i] =lines[i];
             }
 
             return InputData; 

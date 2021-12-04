@@ -16,6 +16,7 @@ namespace AdventOfCode2021
             dayChooser.ReadDayFromConsole();
             dayChooser.ReadFilenameFromConsole();
             dataReader.ReadInputData(dayChooser);
+            days.DayTwo(dataReader);
             dayChooser.SelectDay(days,dataReader);
         }
     }
