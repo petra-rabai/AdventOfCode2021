@@ -125,21 +125,57 @@ namespace AdventOfCode2021
 
         }
 
-        public void DayThree(DataReader dataReader)
+        public int DayThree(DataReader dataReader)
         {
-            string gammaRate;
-            string epsilonRate;
-            int lineCount;
+            string[] gammaRate = new string[12];
+            string[] epsilonRate = new string[12];
+            int countZero = 0;
+            int countOne = 0;
             string binaryReportLine;
+            char riports;
+            int powerConsuption = 0;
+            int epsilonRate10;
+            int gammaRate10;
+            string epsilonString;
+            string gammaString;
 
-            foreach (var item in dataReader.InputData)
+            for (int x = 0; x < dataReader.InputData[0].Length; x++)
             {
-                binaryReportLine = item;
-                lineCount = binaryReportLine.Length;
-                
+                foreach (var item in dataReader.InputData)
+                {
+                    binaryReportLine = item;
+                    riports = binaryReportLine.ToCharArray()[x];
+
+                        if (riports == '0')
+                        {
+                            countZero++;
+                        }
+                        if (riports == '1')
+                        {
+                            countOne++;
+                        } 
+                }
+
+                gammaRate[x] += (countOne > countZero) ? "1" : "0";
+                epsilonRate[x] += (countOne > countZero) ? "0" : "1";
+
+            }
+            epsilonString = epsilonRate[0].ToString();
+            gammaString = gammaRate[0].ToString();
+
+            for (int i = 0; i < epsilonRate.Length; i++)
+            {
+                epsilonString += epsilonRate[i].ToString();
+                gammaString += gammaRate[i].ToString();
+
             }
 
+            epsilonRate10 = Convert.ToInt32(epsilonString, 2);
+            gammaRate10 = Convert.ToInt32(gammaString, 2);
 
+            powerConsuption = gammaRate10 * epsilonRate10;
+
+            return powerConsuption;
         }
     }
 }

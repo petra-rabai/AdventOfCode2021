@@ -5,13 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2021", "AdventOfCode2021\AdventOfCode2021.csproj", "{49B035A2-5DCE-4461-9B06-522D281E78BB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inputs", "Inputs", "{1AF97986-3E2D-4AE9-B83C-13AB63F8037D}"
-	ProjectSection(SolutionItems) = preProject
-		AdventOfCode2021\Day1Input.txt = AdventOfCode2021\Day1Input.txt
-		AdventOfCode2021\Day2Input.txt = AdventOfCode2021\Day2Input.txt
-		AdventOfCode2021\Day3Input.txt = AdventOfCode2021\Day3Input.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
