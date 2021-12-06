@@ -127,51 +127,48 @@ namespace AdventOfCode2021
 
         public int DayThree(DataReader dataReader)
         {
-            string[] gammaRate = new string[12];
-            string[] epsilonRate = new string[12];
+
+            string gammaRate = "";
+            string epsilonRate = "";
             int countZero = 0;
             int countOne = 0;
-            string binaryReportLine;
-            char riports;
+            char[] riports = new char[12];
             int powerConsuption = 0;
             int epsilonRate10;
             int gammaRate10;
-            string epsilonString;
-            string gammaString;
 
-            for (int x = 0; x < dataReader.InputData[0].Length; x++)
+            for (int j = 0; j <= dataReader.InputData[0].Length-1; j++)
             {
                 foreach (var item in dataReader.InputData)
                 {
-                    binaryReportLine = item;
-                    riports = binaryReportLine.ToCharArray()[x];
-
-                        if (riports == '0')
-                        {
-                            countZero++;
-                        }
-                        if (riports == '1')
-                        {
-                            countOne++;
-                        } 
+                    riports[j] = item.ToCharArray()[j];
+                    if (riports[j] == '0')
+                    {
+                        countZero++;
+                    }
+                    if (riports[j] == '1')
+                    {
+                        countOne++;
+                    }
                 }
-
-                gammaRate[x] += (countOne > countZero) ? "1" : "0";
-                epsilonRate[x] += (countOne > countZero) ? "0" : "1";
-
+                if (countOne > countZero)
+                {
+                    gammaRate += "1";
+                    epsilonRate += "0";
+                }
+                if (countOne > countZero)
+                {
+                    gammaRate += "0";
+                    epsilonRate += "1";
+                }
             }
-            epsilonString = epsilonRate[0].ToString();
-            gammaString = gammaRate[0].ToString();
+            
 
-            for (int i = 0; i < epsilonRate.Length; i++)
-            {
-                epsilonString += epsilonRate[i].ToString();
-                gammaString += gammaRate[i].ToString();
 
-            }
 
-            epsilonRate10 = Convert.ToInt32(epsilonString, 2);
-            gammaRate10 = Convert.ToInt32(gammaString, 2);
+
+            epsilonRate10 = Convert.ToInt32(epsilonRate, 2);
+            gammaRate10 = Convert.ToInt32(gammaRate, 2);
 
             powerConsuption = gammaRate10 * epsilonRate10;
 
