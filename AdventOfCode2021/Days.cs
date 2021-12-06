@@ -137,7 +137,7 @@ namespace AdventOfCode2021
             int epsilonRate10;
             int gammaRate10;
 
-            for (int j = 0; j <= dataReader.InputData[0].Length-1; j++)
+            for (int j = 0; j < dataReader.InputData[0].Length; j++)
             {
                 foreach (var item in dataReader.InputData)
                 {
@@ -156,11 +156,12 @@ namespace AdventOfCode2021
                     gammaRate += "1";
                     epsilonRate += "0";
                 }
-                if (countOne > countZero)
+                if (countZero < countOne)
                 {
                     gammaRate += "0";
                     epsilonRate += "1";
                 }
+                
             }
             
 
