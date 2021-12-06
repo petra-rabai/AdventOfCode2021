@@ -132,7 +132,7 @@ namespace AdventOfCode2021
             string epsilonRate = "";
             int countZero = 0;
             int countOne = 0;
-            char[] riports = new char[12];
+            char riports;
             int powerConsuption = 0;
             int epsilonRate10;
             int gammaRate10;
@@ -141,12 +141,12 @@ namespace AdventOfCode2021
             {
                 foreach (var item in dataReader.InputData)
                 {
-                    riports[j] = item.ToCharArray()[j];
-                    if (riports[j] == '0')
+                    riports = item.ToCharArray()[j];
+                    if (riports == '0')
                     {
                         countZero++;
                     }
-                    if (riports[j] == '1')
+                    if (riports == '1')
                     {
                         countOne++;
                     }
@@ -163,10 +163,6 @@ namespace AdventOfCode2021
                 }
                 
             }
-            
-
-
-
 
             epsilonRate10 = Convert.ToInt32(epsilonRate, 2);
             gammaRate10 = Convert.ToInt32(gammaRate, 2);
