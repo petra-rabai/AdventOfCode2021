@@ -129,24 +129,24 @@ namespace AdventOfCode2021
         {
 
             string gammaRate = "";
-            string epsilonRate = "";
-            int countZero = 0;
-            int countOne = 0;
-            char riports;
+            string epsilonRate = "";            
+            char riportBit;
             int powerConsuption = 0;
             int epsilonRate10;
             int gammaRate10;
 
             for (int j = 0; j < dataReader.InputData[0].Length; j++)
             {
+                int countZero = 0;
+                int countOne = 0;
                 foreach (var item in dataReader.InputData)
                 {
-                    riports = item.ToCharArray()[j];
-                    if (riports == '0')
+                    riportBit = item.ToCharArray()[j];
+                    if (riportBit == '0')
                     {
                         countZero++;
                     }
-                    if (riports == '1')
+                    if (riportBit == '1')
                     {
                         countOne++;
                     }
@@ -156,12 +156,12 @@ namespace AdventOfCode2021
                     gammaRate += "1";
                     epsilonRate += "0";
                 }
-                if (countZero < countOne)
-                {
+               else
+               {
                     gammaRate += "0";
                     epsilonRate += "1";
-                }
-                
+               }
+
             }
 
             epsilonRate10 = Convert.ToInt32(epsilonRate, 2);
@@ -171,5 +171,9 @@ namespace AdventOfCode2021
 
             return powerConsuption;
         }
+
+        // Part Two
+
+
     }
 }
