@@ -125,7 +125,7 @@ namespace AdventOfCode2021
 
         }
 
-        public int DayThree(DataReader dataReader)
+        public void DayThree(DataReader dataReader)
         {
 
             string gammaRate = "";
@@ -134,6 +134,17 @@ namespace AdventOfCode2021
             int powerConsuption = 0;
             int epsilonRate10;
             int gammaRate10;
+
+            int lifeSupportRate;
+            List<string> oxygenGenerator = new List<string>();
+            List<string> co2Scrubber = new List<string>();
+            char bitCriteria = ' ';
+            int oxygenGeneratorRate10;
+            int co2ScrubberRate10;
+            string oxygenGeneratorRate = "";
+            string co2ScrubberGeneratorRate = "";
+
+
 
             for (int j = 0; j < dataReader.InputData[0].Length; j++)
             {
@@ -169,11 +180,43 @@ namespace AdventOfCode2021
 
             powerConsuption = gammaRate10 * epsilonRate10;
 
-            return powerConsuption;
+            // Part Two
+            oxygenGenerator = dataReader.InputData.ToList();
+            co2Scrubber = dataReader.InputData.ToList();
+
+            for (int i = 0; i < dataReader.InputData[0].Length; i++)
+            {
+                int countZero = 0;
+                int countOne = 0;
+
+                bitCriteria = oxygenGenerator.Count(c => c[i] == '1') >= oxygenGenerator.Count(c => c[i] == '0') ? '1' : '0';
+                oxygenGenerator.RemoveAll(x => x[i] != bitCriteria);
+
+                if (oxygenGenerator.Count == 1) break;
+
+
+
+            }
+
+            for (var i = 0; i < dataReader.InputData[0].Length; i++)
+            {
+                bitCriteria = co2Scrubber.Count(c => c[i] == '1') < co2Scrubber.Count(c => c[i] == '0') ? '1' : '0';
+
+                co2Scrubber.RemoveAll(x => x[i] != bitCriteria);
+
+                if (co2Scrubber.Count == 1) break;
+            }
+
+
+            oxygenGeneratorRate10 = Convert.ToInt32(oxygenGenerator.First(), 2);
+            co2ScrubberRate10 = Convert.ToInt32(co2Scrubber.First(), 2);
+
+            lifeSupportRate = oxygenGeneratorRate10 * co2ScrubberRate10;
+
+            Console.WriteLine();
         }
 
-        // Part Two
-
+       
 
     }
 }
