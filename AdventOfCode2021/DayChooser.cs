@@ -38,6 +38,9 @@ namespace AdventOfCode2021
                 case "Day 3":
                     days.DayThree(dataReader);
                     break;
+                case "Day 4":
+                    days.DayFour(dataReader);
+                    break;
                 default:
                     break;
             }
